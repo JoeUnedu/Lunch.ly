@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Customers{% endblock %}
+{% block content %}
+
+<a class="btn btn-primary" style="float: right" href="/add/">Add a Customer</a></p>
+
+<h1>Customers{% if addlInfo %}{{ addlInfo }}{% endif %}</h1>
+
+<ul style="column-count: 4">
+  {% for customer in customers %}
+  <li><a href="/{{ customer.id }}/">{{ customer.fullName }}
+      {% if customer.nbrOfRes %}&nbsp;({{ customer.nbrOfRes }}){% endif %}</a></li>
+  {% endfor %}
+</ul>
+<h5>{{ msgCount }}</h5>
+{% endblock %}
